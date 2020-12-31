@@ -1,0 +1,903 @@
+<link rel="icon" href="images/logo.png" type="image/jpg" />
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link type="text/css" rel="stylesheet" id="dark-mode-general-link"><link type="text/css" rel="stylesheet" id="dark-mode-custom-link"><style lang="en" type="text/css" id="dark-mode-custom-style"></style><div id="twoseven-scripts" data-info="Scripts added by TwoSeven extension" style="display: none !important; position: static !important; top: 0px !important; left: 0px !important; width: 0px !important; height: 0px !important;"><div class="fit-vids-style">­<style>               .fluid-width-video-wrapper {                 width: 100%;                              position: relative;                       padding: 0;                            }                                                                                   .fluid-width-video-wrapper iframe,        .fluid-width-video-wrapper object,        .fluid-width-video-wrapper embed {           position: absolute;                       top: 0;                                   left: 0;                                  width: 100%;                              height: 100%;                          }                                       </style></div><script type="text/javascript" id="__tmpScript-714399055" data-added-by-two-seven="1">(function() {
+    window.twoseven = {};
+  })();</script><script type="text/javascript" id="__tmpScript-438480539" data-added-by-two-seven="1">(function() {
+    window.twoseven.waitForDOMNode = async function waitForDOMNode(e,t=document){e=e||{};const{type:n,value:o}=e;if(!n||!o)throw new Error("Must specify identifier");let s=o;switch(n){case"tag":s=o.toUpperCase()}if("check"!==n){const e=await i({type:"selector",value:s},[],t);if(e)return new Promise(t=>t(e))}async function i({type:e,value:t},n,o){let s;switch(e){case"tag":s=n.find(e=>e.tagName===t);break;case"selector":s=o.querySelector(t);break;case"check":for(const e of n){if(await t(e))return e}}return s}return new Promise((e,o)=>{const r=new MutationObserver(async o=>{for(const a of o)if("childList"===a.type){const o=Array.from(a.addedNodes),c=await i({type:n,value:s},o,t);if(c)return r.disconnect(),e(c)}});r.observe(t,{childList:!0,subtree:!0})})};
+  })();</script><script type="text/javascript" id="__tmpScript-233592151" data-added-by-two-seven="1">(function() {
+    
+  window.twoseven.reportError = function reportError(e,t,n){"string"==typeof(n=n||{})&&(n={message:n});const{message:o,stack:s}=t;Object.assign(n,{tag:e,error:{message:o,stack:s}}),window.tsExtGetPostToParent()({name:name,tag:e,action:"report-error",json:n}),console.error(JSON.stringify(n.error))}
+;
+  })();</script><script type="text/javascript" id="__tmpScript-581110104" data-added-by-two-seven="1">(function() {
+    
+  window.twosevenHmsToSecondsOnly = function(str) {
+      var p = str.split(':'),
+          s = 0, m = 1;
+
+      while (p.length > 0) {
+          s += m * parseInt(p.pop(), 10);
+          m *= 60;
+      }
+
+      return s;
+  }
+;
+  })();</script><script type="text/javascript" id="__tmpScript-630523092" data-added-by-two-seven="1">(function() {
+    window.twosevenExtLog = function twosevenExtLog(e,o,c){o||(o=e,e=void 0);let n=c||"black";if(c)switch(c){case"success":n="Green";break;case"info":n="DodgerBlue";break;case"error":n="Red";break;case"warning":n="Orange";break;default:n=c}e?console.log("%c"+e+": "+o,`color:${n}`):console.log("%c"+o,`color:${n}`)};
+  })();</script><script type="text/javascript" id="__tmpScript-492201005" data-added-by-two-seven="1">(function() {
+    
+  document.twosevenGET = function(url, callback) {
+    var xmlhttp = new XMLHttpRequest();
+
+    xmlhttp.onreadystatechange = function() {
+      if (xmlhttp.readyState == XMLHttpRequest.DONE ) {
+        if (xmlhttp.status == 200) {
+          callback(null, xmlhttp.responseText);
+        } else {
+          callback('something else other than 200 was returned', '');
+        }
+      }
+    };
+    xmlhttp.open("GET", url, true);
+    xmlhttp.send();
+  };
+;
+  })();</script><script type="text/javascript" id="__tmpScript-421134079" data-added-by-two-seven="1">(function() {
+    
+  window.triggerEvent = function(e,t,n,o=!1){let s;o?(n&&"string"!=typeof n&&(n=JSON.stringify(n)),s=n):s={data:n},window.twosevenScriptsDiv&&n&&"object"==typeof n&&(console.warn(`WARNING: Attempting to send an object via event.detail from CS->Page does not work on Firefox: ${JSON.stringify(n)}`),console.error((new Error).stack));var i=new CustomEvent(t,{bubbles:!0,composed:!0,detail:s});e.dispatchEvent(i)}
+;
+  })();</script><script type="text/javascript" id="__tmpScript-151417875" data-added-by-two-seven="1">(function() {
+    window.twoseven.postTo = async function postTo(e,t,n=!1){let o;return t.name=t.name||name,o=n?new Promise(e=>{const n=`ack-${t.action}-${1e9*Math.random()|0}`;t.ack={event:n};window.debug&&["play","pause","currentTime"].some(e=>t.action.includes(e)),window.addEventListener("message",function t({data:o={}}){o.action===n&&(window.removeEventListener("message",t),e(o.json))})}):new Promise(e=>e()),e.postMessage(t,"*"),o};
+  })();</script><script type="text/javascript" id="__tmpScript-130974700" data-added-by-two-seven="1">(function() {
+    window.tsExtGetPostTo = function tsExtGetPostTo(){return window.twoseven&&window.twoseven.postTo||window.postTo};
+  })();</script><script type="text/javascript" id="__tmpScript-867911082" data-added-by-two-seven="1">(function() {
+    window.tsExtGetPostToParent = function tsExtGetPostToParent(){return window.twoseven&&window.twoseven.postToParent||window.postToParent};
+  })();</script><script type="text/javascript" id="__tmpScript-997210145" data-added-by-two-seven="1">(function() {
+    window.twoseven.postResponse = async function postResponse(e,t){const{source:n,data:{ack:{event:o}}}=e;window.tsExtGetPostTo()(n,{action:o,json:t})};
+  })();</script><script type="text/javascript" id="__tmpScript-954586009" data-added-by-two-seven="1">(function() {
+    window.twoseven.postToParent = async function postToParent(e,t=!1){return window.tsExtGetPostTo()(window.parent,e,t)};
+  })();</script><script type="text/javascript" id="__tmpScript-298858556" data-added-by-two-seven="1">(function() {
+    window.twoseven.postToTop = async function postToTop(e,t=!1){return window.tsExtGetPostTo()(window.top,e,t)};
+  })();</script><script type="text/javascript" id="__tmpScript-817401219" data-added-by-two-seven="1">(function() {
+    
+  window.twoseven.getFromStorage = e=>new Promise((t,n)=>{const o="get-from-storage-"+(1e9*Math.random()|0);window.addEventListener(o,e=>{window.removeEventListener(o,this);const{detail:{data:{value:n}}}=e;t(n)}),triggerEvent(window,"get-from-storage",{key:e,evt:o})})
+  window.twoseven.saveToStorage = e=>{triggerEvent(window,"save-to-storage",e)}
+;
+  })();</script><script type="text/javascript" id="__tmpScript-97240867" data-added-by-two-seven="1">(function() {
+    
+  function attachHistoryListeners(){var e=history.pushState;history.pushState=function(t,n,o){return"function"==typeof history.onpushstate&&history.onpushstate({state:t}),triggerEvent(window,"pushstate",{uri:o}),e.apply(history,arguments)};var t=history.replaceState;history.replaceState=function(e){return"function"==typeof history.onreplacestate&&history.onreplacestate({state:e}),t.apply(history,arguments)}}
+  attachHistoryListeners()
+;
+  })();</script><script type="text/javascript" id="__tmpScript-544138343" data-added-by-two-seven="1">(function() {
+    window.twoseven.once = function once(e,t,n){e.addEventListener(t,function o(s){e.removeEventListener(t,o),n(s)})};
+  })();</script><script type="text/javascript" id="__tmpScript-913754520" data-added-by-two-seven="1">(function() {
+    
+  window.twoseven.isOnTwoSevenTab = async () => {
+    const result = await window.twoseven.postTo(window, { action: 'is-on-twoseven-tab' }, true)
+    return result
+  }
+;
+  })();</script><script type="text/javascript" id="__tmpScript-449008114" data-added-by-two-seven="1">(function() {
+    
+  window.twoseven.isPaused = async () => {
+    const result = await window.twoseven.postTo(window, { action: 'twoseven:pause-state' }, true)
+    return result
+  }
+;
+  })();</script><script type="text/javascript" id="__tmpScript-285289146" data-added-by-two-seven="1">(function() {
+    
+      const modal = document.querySelector('.twoseven-ext-tab-media-modal')
+      const modalCloseBtn = modal.querySelector('.close')
+      function closeModal () {
+        modal.style.display = 'none'
+        const frame = document.querySelector('#twoseven-ext-tab-media-iframe').contentWindow
+        frame.postMessage({
+          __evt_name: 'modal-hide'
+        }, '*')
+      }
+      modalCloseBtn.onclick = closeModal
+
+      window.onmessage = function (e) {
+        if (e.data.__evt_name === 'modal-hide') {
+          closeModal()
+        }
+      }
+
+      window.twoseven.closeTabMediaModal = closeModal
+
+      window.onclick = function (e) {
+        if (e.target.id === 'twoseven-ext-tab-media-modal' && modal.style.display === 'block') {
+            closeModal()
+        }
+      }
+    ;
+  })();</script></div><head>
+		<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-NEHE0J72YK"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NEHE0J72YK');
+</script>
+    	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+		<meta charset="UTF-8">
+		<link rel="pingback" href="https://theburnhambox.com/frida/xmlrpc.php">
+		<title>Contact – Dr. Swati Naik</title>
+<link rel="dns-prefetch" href="//maxcdn.bootstrapcdn.com">
+<link rel="dns-prefetch" href="//fonts.googleapis.com">
+<link rel="dns-prefetch" href="//s.w.org">
+<link rel="alternate" type="application/rss+xml" title="Frida » Feed" href="https://theburnhambox.com/frida/feed/">
+<link rel="alternate" type="application/rss+xml" title="Frida » Comments Feed" href="https://theburnhambox.com/frida/comments/feed/">
+<link rel="alternate" type="application/rss+xml" title="Frida » Contact Comments Feed" href="https://theburnhambox.com/frida/contact/feed/">
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/13.0.0\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/13.0.0\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/theburnhambox.com\/frida\/wp-includes\/js\/wp-emoji-release.min.js?ver=5.5.3"}};
+			!function(e,a,t){var r,n,o,i,p=a.createElement("canvas"),s=p.getContext&&p.getContext("2d");function c(e,t){var a=String.fromCharCode;s.clearRect(0,0,p.width,p.height),s.fillText(a.apply(this,e),0,0);var r=p.toDataURL();return s.clearRect(0,0,p.width,p.height),s.fillText(a.apply(this,t),0,0),r===p.toDataURL()}function l(e){if(!s||!s.fillText)return!1;switch(s.textBaseline="top",s.font="600 32px Arial",e){case"flag":return!c([127987,65039,8205,9895,65039],[127987,65039,8203,9895,65039])&&(!c([55356,56826,55356,56819],[55356,56826,8203,55356,56819])&&!c([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]));case"emoji":return!c([55357,56424,8205,55356,57212],[55357,56424,8203,55356,57212])}return!1}function d(e){var t=a.createElement("script");t.src=e,t.defer=t.type="text/javascript",a.getElementsByTagName("head")[0].appendChild(t)}for(i=Array("flag","emoji"),t.supports={everything:!0,everythingExceptFlag:!0},o=0;o<i.length;o++)t.supports[i[o]]=l(i[o]),t.supports.everything=t.supports.everything&&t.supports[i[o]],"flag"!==i[o]&&(t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&t.supports[i[o]]);t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&!t.supports.flag,t.DOMReady=!1,t.readyCallback=function(){t.DOMReady=!0},t.supports.everything||(n=function(){t.readyCallback()},a.addEventListener?(a.addEventListener("DOMContentLoaded",n,!1),e.addEventListener("load",n,!1)):(e.attachEvent("onload",n),a.attachEvent("onreadystatechange",function(){"complete"===a.readyState&&t.readyCallback()})),(r=t.source||{}).concatemoji?d(r.concatemoji):r.wpemoji&&r.twemoji&&(d(r.twemoji),d(r.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script><script src="https://theburnhambox.com/frida/wp-includes/js/wp-emoji-release.min.js?ver=5.5.3" type="text/javascript" defer=""></script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+	<link rel="stylesheet" id="sb_instagram_styles-css" href="https://theburnhambox.com/frida/wp-content/plugins/instagram-feed/css/sbi-styles.min.css?ver=2.5.2" type="text/css" media="all">
+<link rel="stylesheet" id="wp-block-library-css" href="https://theburnhambox.com/frida/wp-includes/css/dist/block-library/style.min.css?ver=5.5.3" type="text/css" media="all">
+<link rel="stylesheet" id="contact-form-7-css" href="https://theburnhambox.com/frida/wp-content/plugins/contact-form-7/includes/css/styles.css?ver=5.2.2" type="text/css" media="all">
+<link rel="stylesheet" id="reset-css" href="https://theburnhambox.com/frida/wp-content/themes/frida/css/reset.css?ver=5.5.3" type="text/css" media="all">
+<link rel="stylesheet" id="style-css" href="https://theburnhambox.com/frida/wp-content/themes/frida/style.css?ver=5.5.3" type="text/css" media="all">
+<link rel="stylesheet" id="font-awesome-css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css?ver=5.5.3" type="text/css" media="all">
+<link rel="stylesheet" id="noto-serif-css" href="https://fonts.googleapis.com/css?family=Open+Sans%3A400%2C700%2C400italic&amp;subset=latin%2Cgreek-ext&amp;ver=5.5.3" type="text/css" media="all">
+<link rel="stylesheet" id="source-serif-css" href="https://fonts.googleapis.com/css?family=Josefin+Sans&amp;subset=latin%2Clatin-ext&amp;ver=5.5.3" type="text/css" media="all">
+<link rel="stylesheet" id="trocchi-css" href="https://fonts.googleapis.com/css?family=Trocchi&amp;subset=latin%2Clatin-ext&amp;ver=5.5.3" type="text/css" media="all">
+<link rel="stylesheet" id="bxslider-css" href="https://theburnhambox.com/frida/wp-content/themes/frida/css/jquery.bxslider.css?ver=5.5.3" type="text/css" media="all">
+<link rel="stylesheet" id="responsive-css" href="https://theburnhambox.com/frida/wp-content/themes/frida/css/responsive.css?ver=5.5.3" type="text/css" media="all">
+<link rel="stylesheet" id="slicknav-css" href="https://theburnhambox.com/frida/wp-content/themes/frida/css/slicknav.css?ver=5.5.3" type="text/css" media="all">
+<script type="text/javascript" src="https://theburnhambox.com/frida/wp-includes/js/jquery/jquery.js?ver=1.12.4-wp" id="jquery-core-js"></script>
+<link rel="https://api.w.org/" href="https://theburnhambox.com/frida/wp-json/"><link rel="alternate" type="application/json" href="https://theburnhambox.com/frida/wp-json/wp/v2/pages/9"><link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://theburnhambox.com/frida/xmlrpc.php?rsd">
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://theburnhambox.com/frida/wp-includes/wlwmanifest.xml"> 
+<meta name="generator" content="WordPress 5.5.3">
+<link rel="canonical" href="https://theburnhambox.com/frida/contact/">
+<link rel="shortlink" href="https://theburnhambox.com/frida/?p=9">
+<link rel="alternate" type="application/json+oembed" href="https://theburnhambox.com/frida/wp-json/oembed/1.0/embed?url=https%3A%2F%2Ftheburnhambox.com%2Ffrida%2Fcontact%2F">
+<link rel="alternate" type="text/xml+oembed" href="https://theburnhambox.com/frida/wp-json/oembed/1.0/embed?url=https%3A%2F%2Ftheburnhambox.com%2Ffrida%2Fcontact%2F&amp;format=xml">
+
+	<style type="text/css">
+
+		/* Site Colors */
+
+		a,
+		a:visited,
+		.textwidget a,
+		.textwidget a:visited { color: #000; }
+		a:hover,
+		.textwidget a:hover { color: #1c7791; }
+		input,
+		textarea,
+		select { background-color: #e9e9e9; color: #777; }
+		.filter-bar { background-color: #e9e9e9; }
+		.chief-hdr,
+		.filter-bar-content,
+		.page-with-no-image { color: #9b4800; }
+		.liner span:before,
+		.liner span:after { border-bottom-color: #CCC; }
+		.post-date,
+		.recent-post-date,
+		.recent-comment-date { color: #777; }
+		body,
+		.textwidget,
+		.wp-tag-cloud { color: #444; }
+		.site-nav li ul,
+		.site-s-nav li ul,
+		.nav-s-container .menu li ul { background-color: #aad3d9; }
+
+		
+		
+		.slicknav_menu { background-color: #9bc2c8; }
+		.text-over-image { color: #FFF; }
+
+		#wp-calendar { border-color: #e9e9e9; color: #444; }
+		#wp-calendar caption { background-color: #e9e9e9; color: #777; }
+		#wp-calendar tfoot td#prev a:hover,
+		#wp-calendar tfoot td#next a:hover { color: #1c7791; }
+
+		/* */
+
+		.logo-text a,
+		.logo-text a:visited { color: #000; }
+		body { background-color: #ddd7c7; }
+
+		
+		.slicknav_menu .slicknav_icon-bar { background-color: #FFF; }
+		.btn-to-top { display: ; }
+		.top-bar { height: 200px; }
+
+		/* Since v.1.1 */
+		.nav-container a,
+		.nav-s-container a,
+		.nav-container a:visited,
+		.nav-s-container a:visited { color: #FFF; }
+		.nav-container a:hover,
+		.nav-s-container a:hover { color: #5ea8b3; }
+		.nav-container-outer { background-color: #9bc2c8; border-top-color: #29747f; }
+
+		
+		
+		.slicknav_menu a,
+		.slicknav_menu a:visited { color: #FFF; }
+		.slicknav_menu a:hover { color: #5ea8b3; }
+
+		
+			
+			.widget-item { padding-left: 40px; margin-left: -20px; }
+
+			
+		
+			
+			.zig-zag:after {
+				background: linear-gradient(-45deg, #ddd7c7 12px, transparent 0), linear-gradient(45deg, #ddd7c7 12px, transparent 0);
+				background-position: left-bottom;
+				background-repeat: repeat-x;
+				background-size: 24px 24px;
+				content: " ";
+				display: block;
+				bottom: 0px;
+				left: 0px;
+				width: 100%;
+				height: 24px;
+			}
+
+			.zig-zag-f:before {
+				background: linear-gradient(-135deg, #ddd7c7 6px, transparent 0), linear-gradient(135deg, #ddd7c7 6px, transparent 0);
+				background-position: left-bottom;
+				background-repeat: repeat-x;
+				background-size: 12px 12px;
+				content: " ";
+				display: block;
+				bottom: 0px;
+				left: 0px;
+				width: 100%;
+				height: 12px;
+			}
+
+			
+		
+		.sidebar { background-color: #FFF; }
+		.footer-outer { background-color: #b9af94; }
+		.footer-text { color: #ddd7c7; }
+		.site-footer a { color: #FFF; }
+		.site-footer a:hover { color: #7a453d; }
+
+		
+		/* */
+
+		/* Post Formats */
+
+		
+		article.post { background-color: #FFF; border-color: #CCC; border-width: 0px; }
+		article.post .date-bar,
+		article.post .category-bar,
+		article.post blockquote,
+		.wpcf7-form-control-wrap span,
+		.wpcf7-response-output,
+		.wpcf7-mail-sent-ok { color: #777; }
+		article.post .chief-hdr,
+		article.post .chief-hdr a { color: #555; }
+		article.post .liner span:before,
+		article.post .liner span:after { border-bottom-color: #CCC; }
+		/* Since v.1.1 */
+		article.post .btnReadMore a { border-color: #CCC; }
+		/* */
+		article.post div.the-content { color: #444; }
+		article.post .social-bar a { color: #CCC; }
+		article.post blockquote { border-left-color: #1c7791; }
+		article.post .the-content a,
+		article.post .date-bar a,
+		article.post .category-bar a,
+		.ico-send,
+		.wpcf7-form .wpcf7-submit { color: #1c7791; }
+		article.post input,
+		article.post textarea,
+		article.post select { background-color: #e9e9e9; color: #777; }
+		article.post hr { background-color: #e9e9e9; color: #e9e9e9; }
+
+		article.post-gallery { background-color: #3a3a3a; border-color: #CCC; border-width: 0px; }
+		article.post-gallery .date-bar,
+		article.post-gallery .category-bar,
+		article.post-gallery blockquote { color: #9e9e9e; }
+		article.post-gallery .chief-hdr,
+		article.post-gallery .chief-hdr a { color: #cc8828; }
+		article.post-gallery .liner span:before,
+		article.post-gallery .liner span:after { border-bottom-color: #cc8828; }
+		/* Since v.1.1 */
+		article.post-gallery .btnReadMore a { border-color: #cc8828; }
+		/* */
+		article.post-gallery div.the-content { color: #bababa; }
+		article.post-gallery .social-bar a { color: #CCC; }
+		article.post-gallery blockquote { border-left-color: #ffffff; }
+		article.post-gallery .the-content a,
+		article.post-gallery .date-bar a,
+		article.post-gallery .category-bar a { color: #ffffff; }
+		article.post-gallery input,
+		article.post-gallery textarea,
+		article.post-gallery select { background-color: #e9e9e9; color: #777; }
+		article.post-gallery hr { background-color: #e9e9e9; color: #e9e9e9; }
+
+		article.post-video { background-color: #57a8c1; border-color: #CCC; border-width: 0px; }
+		article.post-video .date-bar,
+		article.post-video .category-bar,
+		article.post-video blockquote { color: #d8d8d8; }
+		article.post-video .chief-hdr,
+		article.post-video .chief-hdr a { color: #ffffff; }
+		article.post-video .liner span:before,
+		article.post-video .liner span:after { border-bottom-color: #ffffff; }
+		/* Since v.1.1 */
+		article.post-video .btnReadMore a { border-color: #ffffff; }
+		/* */
+		article.post-video div.the-content { color: #ffffff; }
+		article.post-video .social-bar a { color: #b4dce8; }
+		article.post-video blockquote { border-left-color: #ffffff; }
+		article.post-video .the-content a,
+		article.post-video .date-bar a,
+		article.post-video .category-bar a { color: #ffffff; }
+		article.post-video input,
+		article.post-video textarea,
+		article.post-video select { background-color: #e9e9e9; color: #777; }
+		article.post-video hr { background-color: #e9e9e9; color: #e9e9e9; }
+
+		article.post-aside { background-color: #dd9f9f; border-color: #CCC; border-width: 0px; }
+		article.post-aside .date-bar,
+		article.post-aside .category-bar,
+		article.post-aside blockquote { color: #ffd3d3; }
+		article.post-aside div.the-content { color: #ffffff; }
+		article.post-aside .social-bar a { color: #dd7373; }
+		article.post-aside blockquote { border-left-color: #ffffff; }
+		article.post-aside .the-content a,
+		article.post-aside .date-bar a,
+		article.post-aside .category-bar a { color: #ffffff; }
+		article.post-aside input,
+		article.post-aside textarea,
+		article.post-aside select { background-color: #e9e9e9; color: #777; }
+		article.post-aside hr { background-color: #e9e9e9; color: #e9e9e9; }
+
+		article.post-link { background-color: #FFF; border-color: #CCC; border-width: 0px; }
+		article.post-link .date-bar,
+		article.post-link .category-bar { color: #777; }
+		article.post-link .chief-hdr,
+		article.post-link .chief-hdr a { color: #555; }
+		article.post-link .liner span:before,
+		article.post-link .liner span:after { border-bottom-color: #CCC; }
+		/* Since v.1.1 */
+		article.post-link .btnReadMore a { border-color: #CCC; }
+		/* */
+		article.post-link .social-bar a { color: #CCC; }
+		article.post-link .date-bar a,
+		article.post-link .category-bar a { color: #1c7791; }
+
+		/* */
+
+		/* Related Posts & Post Comments */
+
+		.comments-container,
+		.related-posts-container { background-color: #FFF; }
+		.comments { color: #444; }
+		.comment-reply-title,
+		.comments .chief-hdr,
+		.comment-author-name,
+		.comment-input-hdr,
+		.related-posts .chief-hdr { color: #555; }
+		.comments .liner span:before,
+		.comments .liner span:after,
+		.related-posts .liner span:before,
+		.related-posts .liner span:after { border-bottom-color: #CCC; }
+		.form-submit .submit,
+		.ico-post,
+		.comments a,
+		.comments a:visited,
+		.related-posts a,
+		.related-posts a:visited { color: #555; }
+		.comments-paging .page-numbers.current,
+		.comment-date,
+		.comment-awaiting,
+		.must-log-in,
+		.logged-in-as { color: #777; }
+		.comments input,
+		.comments textarea,
+		.comments select { background-color: #e9e9e9; color: #777; }
+
+		/* */
+
+		
+				.liner span:before, .liner span:after { border-bottom: 0px; }
+
+			
+				.main-container-outer { max-width: 1120px; }
+
+				/* Since v.1.1 */
+				/*.footer-outer { max-width: 1120px; }*/
+				/* */
+
+			
+				
+				.logo-container { display: block; text-align: center; padding-bottom: 0px; }
+				.nav-container,
+				.nav-s-container { padding-bottom: 0px; }
+				.site-nav,
+				.site-s-nav { padding-left: 0px; }
+				.site-nav li:last-child a,
+				.site-s-nav li:last-child a { margin-right: 14px; }
+				.social-accounts { margin: 5px 0 0 15px; }
+
+				
+				#site-menu-sticky { padding-right: 15px; }
+
+				
+				@media all and (min-width: 400px) {
+
+					
+						.top-bar-outer { padding: 0 20px 0 20px; }
+						.nav-container { height: 80px; padding-top: 25px; }
+
+						/* Since hide zig-zag demo update */
+						
+					
+					.nav-s-container { height: 20px; padding-top: 7px; }
+
+				}
+
+				
+				@media all and (min-width: 1000px) {
+
+					.logo-container { padding-bottom: 50px; }
+
+					/* Since v.1.1 */
+					.nav-container,
+					.nav-s-container { display: inline-block; width: auto; }
+					.nav-container-outer { margin-bottom: 40px; }
+
+					
+						.top-bar-outer { margin: 0; padding: 0; }
+
+										/* */
+
+				}
+
+				
+				
+		
+		/* Slider Colors */
+		.slider-caption { color: #FFF; }
+		.slider-button a,
+		article.post .slider-button a,
+		.slider-button a:visited,
+		article.post .slider-button a:visited { color: #FFF; }
+		.slider-button,
+		article.post .slider-button { border-color: #FFF; }
+		.slide-info-inner { color: #FFF; }
+		.slide-text { background: rgba(105,155,137,0.9); }
+		/* */
+
+		/* Footer Widgets */
+		.footer-widget-area,
+		.widget-item-footer .textwidget,
+		.widget-item-footer .wp-tag-cloud { color: #ddd7c7; }
+
+		.widget-item-footer #wp-calendar { color: #ddd7c7; }
+		.widget-item-footer #wp-calendar tfoot td#prev a:hover,
+		.widget-item-footer #wp-calendar tfoot td#next a:hover { color: #7a453d; }
+
+		.widget-item-footer .post-date,
+		.widget-item-footer .recent-post-date,
+		.widget-item-footer .recent-comment-date { color: #ddd7c7; }
+
+		.widget-item-footer .chief-hdr { color: #ddd7c7; }
+		.widget-item-footer .liner span:before,
+		.widget-item-footer .liner span:after { border-bottom-color: #ddd7c7; }
+		/* */
+
+		
+    </style>
+
+		<style type="text/css" id="wp-custom-css">
+			.wpcf7-form .wpcf7-response-output { padding: 0 !important; margin: 12px 0 0 0 !important; border: 0 !important; }
+
+.social-bar a:nth-child(3) { display: none; }		</style>
+			<link href="chrome-extension://cjdnfmjmdligcpfcekfmenlhiopehjkd/web_resources/modal/modal.css" rel="stylesheet" id="__tmpStyle"></head>
+
+<body class="page-template-default page page-id-9">
+
+	<!-- /* Since v.1.4 - Sticky Header */ -->
+    <div id="sticky-menu-container" class="nav-container-outer">
+    <!-- nav-s-container -->
+    <div class="nav-s-container clearfix">
+        <div class="fs26 social-accounts"><a class="social-icon-touch invis" href="#" target="_blank" style="opacity: 1;"><i class="fa fa-facebook-square"></i></a><a class="social-icon-touch vis" href="#" target="_blank" style="opacity: 1;"><i class="fa fa-twitter"></i></a></div><nav class="site-s-nav source-serif fs16"><ul id="site-menu-sticky" class="menu"><li id="menu-item-572" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-has-children menu-item-572"><a href="index.html">Home</a>
+<ul class="sub-menu">
+	<li id="menu-item-573" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-573"><a href="https://theburnhambox.com/frida/?home=1col">1 Column</a></li>
+	<li id="menu-item-574" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-574"><a href="https://theburnhambox.com/frida/?home=1col_sidebar">1 Column + Sidebar (Default)</a></li>
+	<li id="menu-item-575" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-575"><a href="https://theburnhambox.com/frida/?home=2col">2 Columns</a></li>
+	<li id="menu-item-576" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-576"><a href="https://theburnhambox.com/frida/?home=2col_sidebar">2 Columns + Sidebar</a></li>
+	<li id="menu-item-646" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-646"><a href="https://theburnhambox.com/frida/?home=3col">3 Columns</a></li>
+	<li id="menu-item-651" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-651"><a href="https://theburnhambox.com/frida/?view=serious">A Serious View</a></li>
+</ul>
+</li>
+<!-- <li id="menu-item-647" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-has-children menu-item-647"><a href="https://theburnhambox.com/frida/">Header</a>
+<ul class="sub-menu">
+	<li id="menu-item-649" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-649"><a href="https://theburnhambox.com/frida/?header=justified">Justified</a></li>
+	<li id="menu-item-648" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-648"><a href="https://theburnhambox.com/frida/">Centered (Default)</a></li>
+	<li id="menu-item-650" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-650"><a href="https://theburnhambox.com/frida/?header=banner">Banner</a></li>
+</ul>
+</li> -->
+<li
+id="menu-item-659"
+class="menu-item menu-item-type-post_type menu-item-object-post menu-item-has-children menu-item-659"
+>
+<a href="posts/bye-bye-2020.html">Posts</a>
+<ul class="sub-menu">
+  <li
+	id="menu-item-658"
+	class="menu-item menu-item-type-post_type menu-item-object-post menu-item-658"
+  >
+	<a href="page/1.html">Page 1</a>
+  </li>
+  <li
+	id="menu-item-656"
+	class="menu-item menu-item-type-post_type menu-item-object-post menu-item-656"
+  >
+	<a href="page/2.html">Page 2</a>
+  </li>
+  <li
+	id="menu-item-656"
+	class="menu-item menu-item-type-post_type menu-item-object-post menu-item-656"
+  >
+	<a href="page/3.html">Page 3</a>
+  </li>
+</ul>
+</li>
+<li id="menu-item-655" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-655"><a href="about.html">About</a></li>
+<li id="menu-item-654" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-9 current_page_item menu-item-654"><a href="https://theburnhambox.com/frida/contact/" aria-current="page">Contact</a></li>
+</ul></nav><!-- /site-s-nav -->
+    
+    </div><!-- /nav-s-container -->
+</div>	<!-- /* */ -->
+
+    <!-- site-container -->
+	<div class="site-container">
+        <!-- site-container-inner -->
+        <div class="site-container-inner">
+            <!-- top-bar-outer -->
+            <div class="top-bar-outer">
+                <!-- top-bar -->
+                <div class="top-bar">
+                    <!-- top-bar-inner -->
+                    <div class="top-bar-inner">
+                        <!-- top-bar-container -->
+                        <div class="top-bar-container">
+
+                            <div class="nav-container-outer zig-zag">    
+    <!-- nav-container -->
+    <div class="nav-container">
+        <div class="fs26 social-accounts"><a class="social-icon-touch invis" href="#" target="_blank" style="opacity: 1;"><i class="fa fa-facebook-square"></i></a><a class="social-icon-touch vis" href="#" target="_blank" style="opacity: 1;"><i class="fa fa-twitter"></i></a></div><nav class="site-nav source-serif fs16"><ul id="site-menu" class="menu"><li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-has-children menu-item-572"><a href="index.html">Home</a>
+<ul class="sub-menu">
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-573"><a href="https://theburnhambox.com/frida/?home=1col">1 Column</a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-574"><a href="https://theburnhambox.com/frida/?home=1col_sidebar">1 Column + Sidebar (Default)</a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-575"><a href="https://theburnhambox.com/frida/?home=2col">2 Columns</a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-576"><a href="https://theburnhambox.com/frida/?home=2col_sidebar">2 Columns + Sidebar</a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-646"><a href="https://theburnhambox.com/frida/?home=3col">3 Columns</a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-651"><a href="https://theburnhambox.com/frida/?view=serious">A Serious View</a></li>
+</ul>
+</li>
+<!-- <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-has-children menu-item-647"><a href="https://theburnhambox.com/frida/">Header</a>
+<ul class="sub-menu">
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-649"><a href="https://theburnhambox.com/frida/?header=justified">Justified</a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-648"><a href="https://theburnhambox.com/frida/">Centered (Default)</a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-650"><a href="https://theburnhambox.com/frida/?header=banner">Banner</a></li>
+</ul>
+</li> -->
+<!-- <li class="menu-item menu-item-type-post_type menu-item-object-post menu-item-has-children menu-item-659"><a href="https://theburnhambox.com/frida/bored-at-home/">Posts</a>
+<ul class="sub-menu">
+	<li class="menu-item menu-item-type-post_type menu-item-object-post menu-item-658"><a href="https://theburnhambox.com/frida/bored-at-home/">Standard Post</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-post menu-item-656"><a href="https://theburnhambox.com/frida/grandmas-village/">Gallery Post</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-post menu-item-657"><a href="https://theburnhambox.com/frida/wind/">Video Post</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-post menu-item-652"><a href="https://theburnhambox.com/frida/aside/">Aside Post</a></li>
+</ul>
+</li> -->
+<li
+id="menu-item-659"
+class="menu-item menu-item-type-post_type menu-item-object-post menu-item-has-children menu-item-659"
+>
+<a href="posts/bye-bye-2020.html">Posts</a>
+<ul class="sub-menu">
+  <li
+	id="menu-item-658"
+	class="menu-item menu-item-type-post_type menu-item-object-post menu-item-658"
+  >
+	<a href="page/1.html">Page 1</a>
+  </li>
+  <li
+	id="menu-item-656"
+	class="menu-item menu-item-type-post_type menu-item-object-post menu-item-656"
+  >
+	<a href="page/2.html">Page 2</a>
+  </li>
+  <li
+	id="menu-item-656"
+	class="menu-item menu-item-type-post_type menu-item-object-post menu-item-656"
+  >
+	<a href="page/3.html">Page 3</a>
+  </li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-655"><a href="about.html">About</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-9 current_page_item menu-item-654"><a href="https://theburnhambox.com/frida/contact/" aria-current="page">Contact</a></li>
+</ul></nav><!-- /site-nav -->
+    
+    </div><!-- /nav-container -->
+</div><!-- logo-container -->
+<div class="logo-container">
+
+    <!-- site-header -->
+    <header class="site-header">
+            <a href="https://theburnhambox.com/frida">
+                	
+                    <img alt="" src="images/logo.png" style="width: 150px;">
+
+                    
+            
+            </a>
+
+        
+    </header><!-- /site-header -->
+
+</div><!-- /logo-container -->
+
+                        </div><!-- /top-bar-container -->
+                    </div><!-- /top-bar-inner -->
+                </div><!-- /top-bar -->
+
+                <div id="touch-menu"><div class="slicknav_menu fs16 source-serif"><a href="#" aria-haspopup="true" tabindex="0" class="slicknav_btn slicknav_collapsed" style=""><span class="slicknav_menutxt"></span><span class="slicknav_icon slicknav_no-text"><span class="slicknav_icon-bar"></span><span class="slicknav_icon-bar"></span><span class="slicknav_icon-bar"></span></span></a><ul class="slicknav_nav slicknav_hidden" aria-hidden="true" role="menu" style="display: none;"><li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-has-children menu-item-572 slicknav_collapsed slicknav_parent"><a href="#" role="menuitem" aria-haspopup="true" tabindex="-1" class="slicknav_item slicknav_row" style=""><a href="index.html" tabindex="-1">Home</a>
+<span class="slicknav_arrow"><i class="fa fa-chevron-right"></i></span></a><ul class="sub-menu slicknav_hidden" role="menu" aria-hidden="true" style="display: none;">
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-573"><a href="https://theburnhambox.com/frida/?home=1col" role="menuitem" tabindex="-1">1 Column</a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-574"><a href="https://theburnhambox.com/frida/?home=1col_sidebar" role="menuitem" tabindex="-1">1 Column + Sidebar (Default)</a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-575"><a href="https://theburnhambox.com/frida/?home=2col" role="menuitem" tabindex="-1">2 Columns</a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-576"><a href="https://theburnhambox.com/frida/?home=2col_sidebar" role="menuitem" tabindex="-1">2 Columns + Sidebar</a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-646"><a href="https://theburnhambox.com/frida/?home=3col" role="menuitem" tabindex="-1">3 Columns</a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-651"><a href="https://theburnhambox.com/frida/?view=serious" role="menuitem" tabindex="-1">A Serious View</a></li>
+</ul>
+</li>
+<!-- <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-has-children menu-item-647 slicknav_collapsed slicknav_parent"><a href="#" role="menuitem" aria-haspopup="true" tabindex="-1" class="slicknav_item slicknav_row" style=""><a href="https://theburnhambox.com/frida/" tabindex="-1">Header</a>
+<span class="slicknav_arrow"><i class="fa fa-chevron-right"></i></span></a><ul class="sub-menu slicknav_hidden" role="menu" aria-hidden="true" style="display: none;">
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-649"><a href="https://theburnhambox.com/frida/?header=justified" role="menuitem" tabindex="-1">Justified</a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-648"><a href="https://theburnhambox.com/frida/" role="menuitem" tabindex="-1">Centered (Default)</a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-650"><a href="https://theburnhambox.com/frida/?header=banner" role="menuitem" tabindex="-1">Banner</a></li>
+</ul>
+</li> -->
+<!-- <li class="menu-item menu-item-type-post_type menu-item-object-post menu-item-has-children menu-item-659 slicknav_collapsed slicknav_parent"><a href="#" role="menuitem" aria-haspopup="true" tabindex="-1" class="slicknav_item slicknav_row" style=""><a href="https://theburnhambox.com/frida/bored-at-home/" tabindex="-1">Posts</a>
+<span class="slicknav_arrow"><i class="fa fa-chevron-right"></i></span></a><ul class="sub-menu slicknav_hidden" role="menu" aria-hidden="true" style="display: none;">
+	<li class="menu-item menu-item-type-post_type menu-item-object-post menu-item-658"><a href="https://theburnhambox.com/frida/bored-at-home/" role="menuitem" tabindex="-1">Standard Post</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-post menu-item-656"><a href="https://theburnhambox.com/frida/grandmas-village/" role="menuitem" tabindex="-1">Gallery Post</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-post menu-item-657"><a href="https://theburnhambox.com/frida/wind/" role="menuitem" tabindex="-1">Video Post</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-post menu-item-652"><a href="https://theburnhambox.com/frida/aside/" role="menuitem" tabindex="-1">Aside Post</a></li>
+</ul>
+</li> -->
+<li
+id="menu-item-659"
+class="menu-item menu-item-type-post_type menu-item-object-post menu-item-has-children menu-item-659"
+>
+<a href="posts/bye-bye-2020.html">Posts</a>
+<ul class="sub-menu">
+  <li
+	id="menu-item-658"
+	class="menu-item menu-item-type-post_type menu-item-object-post menu-item-658"
+  >
+	<a href="page/1.html">Page 1</a>
+  </li>
+  <li
+	id="menu-item-656"
+	class="menu-item menu-item-type-post_type menu-item-object-post menu-item-656"
+  >
+	<a href="page/2.html">Page 2</a>
+  </li>
+  <li
+	id="menu-item-656"
+	class="menu-item menu-item-type-post_type menu-item-object-post menu-item-656"
+  >
+	<a href="page/3.html">Page 3</a>
+  </li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-655"><a href="about.html" role="menuitem" tabindex="-1">About</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-9 current_page_item menu-item-654"><a href="https://theburnhambox.com/frida/contact/" aria-current="page" role="menuitem" tabindex="-1">Contact</a></li>
+</ul><div class="social-accounts-touch" style="display: none;"><a class="social-icon-touch" href="#" target="_blank"><i class="fa fa-facebook-square"></i></a><a class="social-icon-touch" href="#" target="_blank"><i class="fa fa-twitter"></i></a></div></div></div>
+
+            </div><!-- /top-bar-outer -->
+
+            <!-- main-container-outer -->
+            <div class="main-container-outer sticky-header">
+
+            	
+                <!-- main-container -->
+                <div class="clearfix main-container">
+                    <!-- site-content -->
+                    <div class="site-content">
+	
+			<div>
+			
+				<article class="post post-page zig-zag">
+				
+					<div>
+						
+						<div class="image-widget-wrapper">
+				
+							 <img width="1013" height="672" src="images/contact.jpg" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="" loading="lazy" srcset="images/contact.jpg 1013w, https://theburnhambox.com/frida/wp-content/uploads/sites/14/2015/02/27-300x199.jpg 300w, https://theburnhambox.com/frida/wp-content/uploads/sites/14/2015/02/27-768x509.jpg 768w" sizes="(max-width: 1013px) 100vw, 1013px">							
+							<div class="image-widget-content">
+								<div class="image-widget-inner">
+									<div class="fs50 source-serif text-over-image image-widget-text">Contact</div>
+								</div>
+							</div>
+							
+						</div>
+											
+					</div>
+					
+					<div class="article-outer">
+						<div class="article-inner">                                                                
+							<div class="article-container">
+														
+								<div class="fs14 noto-serif the-content">
+								
+								<h1 class="fancy-header liner"><span class="line-it"><i class="fa fa-comment-o"></i> Let’s Get Connected</span></h1>
+<p>Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore <em>eu feugiat nulla facilisis</em> at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.<br>
+Cover Photo:&nbsp;Lukasz Wierzbowski<br>
+</p><div role="form" class="wpcf7" id="wpcf7-f653-p9-o1" lang="en-US" dir="ltr">
+<div class="screen-reader-response" role="alert" aria-live="polite"></div>
+<form action="/frida/contact/#wpcf7-f653-p9-o1" method="post" class="wpcf7-form init demo" novalidate="novalidate">
+<div style="display: none;">
+<input type="hidden" name="_wpcf7" value="653">
+<input type="hidden" name="_wpcf7_version" value="5.2.2">
+<input type="hidden" name="_wpcf7_locale" value="en_US">
+<input type="hidden" name="_wpcf7_unit_tag" value="wpcf7-f653-p9-o1">
+<input type="hidden" name="_wpcf7_container_post" value="9">
+<input type="hidden" name="_wpcf7_posted_data_hash" value="">
+</div>
+<p>Name *<br>
+    <span class="wpcf7-form-control-wrap your-name"><input type="text" name="your-name" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false"></span> </p>
+<p>Email *<br>
+    <span class="wpcf7-form-control-wrap your-email"><input type="email" name="your-email" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-email wpcf7-validates-as-required wpcf7-validates-as-email" aria-required="true" aria-invalid="false"></span> </p>
+<p>Subject<br>
+    <span class="wpcf7-form-control-wrap your-subject"><input type="text" name="your-subject" value="" size="40" class="wpcf7-form-control wpcf7-text" aria-invalid="false"></span> </p>
+<p>Message<br>
+    <span class="wpcf7-form-control-wrap your-message"><textarea name="your-message" cols="40" rows="10" class="wpcf7-form-control wpcf7-textarea" aria-invalid="false"></textarea></span> </p>
+<p><input type="submit" value="Send" class="wpcf7-form-control wpcf7-submit"><span class="ajax-loader"></span><div class="ico-send"><i class="fa fa-location-arrow"></i></div></p>
+<div class="wpcf7-response-output" role="alert" aria-hidden="true"></div></form></div><p></p>
+								
+								</div>
+								
+							</div>
+							
+							
+		<div class="social-bar fs20">
+		
+					
+				<a href="https://www.facebook.com/sharer/sharer.php?u=https://theburnhambox.com/frida/contact/" target="_blank"><i class="fa fa-facebook"></i></a>
+				<a href="https://twitter.com/home?status=https://theburnhambox.com/frida/contact/" target="_blank"><i class="fa fa-twitter"></i></a>
+				<a href="https://plus.google.com/share?url=https://theburnhambox.com/frida/contact/" target="_blank"><i class="fa fa-google-plus"></i></a>
+				
+				<!--  Pinterest icon -->
+				
+									
+					<a href="https://pinterest.com/pin/create/button/?url=https://theburnhambox.com/frida/contact/&amp;media=https://theburnhambox.com/frida/wp-content/uploads/sites/14/2015/02/27.jpg&amp;description=" target="_blank"><i class="fa fa-pinterest-p"></i></a>
+					
+								
+				<!-- /Pinterest icon -->
+			
+						
+						
+		</div>
+		
+		
+		<div class="social-bottom-spcr"></div>
+	
+											   
+						</div>            
+					</div>
+				</article>
+			
+			</div>
+                
+        </div><!-- /site-content -->
+        
+        <!-- sidebar -->
+        
+                
+        <!-- /sidebar -->
+        
+    </div><!-- /main-container -->
+</div><!-- main-container-outer -->
+            
+        
+        <!-- footer-outer -->
+        <div class="footer-outer zig-zag-f">
+            <!-- footer-container -->
+            <div class="footer-container">
+
+                <footer class="site-footer clearfix">
+
+                	<!-- /* Since v.1.8 */ -->
+                    
+                        <div class="footer-widget-area clearfix">
+							<div class="footer-widget-area-inner clearfix">
+								<!-- <div class="widget-item-footer-outer" id="categories-1">
+									<div class="widget-item-footer clearfix">
+										<div class="widget-content fs14 noto-serif">
+											<h2 class="widget-title liner source-serif chief-hdr">
+												<span>Categories</span></h2><ul><li class="cat-item cat-item-2">
+													<a href="https://theburnhambox.com/frida/category/likes/">Likes</a> (5)
+
+												</li><li class="cat-item cat-item-3"><a href="https://theburnhambox.com/frida/category/travel/">Travel</a> (3)
+
+												</li><li class="cat-item cat-item-4"><a href="https://theburnhambox.com/frida/category/vintage/">Vintage</a> (4)
+
+												</li></ul>
+											</div></div>
+										</div> -->
+										<div class="widget-item-footer-outer" id="brnhmbx_custompopularpostswidget-2">
+											<div class="widget-item-footer clearfix">
+												<div class="widget-content fs14 noto-serif">
+													<h2 class="widget-title liner source-serif chief-hdr">
+														<span>Popular Posts</span></h2><div class="recent-post-item">
+															<div class="recent-post-img">
+																<a href="https://theburnhambox.com/frida/a-blue-morning/">
+																	<img width="88" height="60" src="https://theburnhambox.com/frida/wp-content/uploads/sites/14/2019/01/frida-4-88x60.jpg" class="attachment-recent-thumbnails size-recent-thumbnails wp-post-image" alt="" loading="lazy" srcset="https://theburnhambox.com/frida/wp-content/uploads/sites/14/2019/01/frida-4-88x60.jpg 88w, https://theburnhambox.com/frida/wp-content/uploads/sites/14/2019/01/frida-4-600x400.jpg 600w" sizes="(max-width: 88px) 100vw, 88px"></a></div><div class="recent-post-hdr"><a href="https://theburnhambox.com/frida/a-blue-morning/">A Blue Morning</a><br><span class="recent-post-date">December 21, 2020</span></div></div><div class="recent-post-item"><div class="recent-post-img"><a href="https://theburnhambox.com/frida/bored-at-home/"><img width="88" height="60" src="https://theburnhambox.com/frida/wp-content/uploads/sites/14/2019/01/frida-16-88x60.jpg" class="attachment-recent-thumbnails size-recent-thumbnails wp-post-image" alt="" loading="lazy" srcset="https://theburnhambox.com/frida/wp-content/uploads/sites/14/2019/01/frida-16-88x60.jpg 88w, https://theburnhambox.com/frida/wp-content/uploads/sites/14/2019/01/frida-16-600x400.jpg 600w" sizes="(max-width: 88px) 100vw, 88px"></a></div><div class="recent-post-hdr"><a href="https://theburnhambox.com/frida/bored-at-home/">Bored at Home</a><br><span class="recent-post-date">December 21, 2020</span></div></div><div class="recent-post-item"><div class="recent-post-img"><a href="https://theburnhambox.com/frida/new-zealand-trip/"><img width="88" height="60" src="https://theburnhambox.com/frida/wp-content/uploads/sites/14/2019/01/frida-12-88x60.jpg" class="attachment-recent-thumbnails size-recent-thumbnails wp-post-image" alt="" loading="lazy" srcset="https://theburnhambox.com/frida/wp-content/uploads/sites/14/2019/01/frida-12-88x60.jpg 88w, https://theburnhambox.com/frida/wp-content/uploads/sites/14/2019/01/frida-12-600x400.jpg 600w" sizes="(max-width: 88px) 100vw, 88px"></a></div><div class="recent-post-hdr"><a href="https://theburnhambox.com/frida/new-zealand-trip/">New Zealand Trip</a><br><span class="recent-post-date">December 21, 2020</span></div></div></div></div></div><div class="widget-item-footer-outer" id="tag_cloud-3"><div class="widget-item-footer clearfix"><div class="widget-content fs14 noto-serif"><h2 class="widget-title liner source-serif chief-hdr"><span>Tags</span></h2><div class="tagcloud"><ul class="wp-tag-cloud" role="list"><li><a href="https://theburnhambox.com/frida/tag/animals/" class="tag-cloud-link tag-link-5 tag-link-position-1" style="font-size: 14px;">animals</a></li><li><a href="https://theburnhambox.com/frida/tag/cooking/" class="tag-cloud-link tag-link-7 tag-link-position-2" style="font-size: 14px;">cooking</a></li><li><a href="https://theburnhambox.com/frida/tag/countries/" class="tag-cloud-link tag-link-8 tag-link-position-3" style="font-size: 14px;">countries</a></li><li><a href="https://theburnhambox.com/frida/tag/home/" class="tag-cloud-link tag-link-11 tag-link-position-4" style="font-size: 14px;">home</a></li><li><a href="https://theburnhambox.com/frida/tag/likes/" class="tag-cloud-link tag-link-13 tag-link-position-5" style="font-size: 14px;">likes</a></li><li><a href="https://theburnhambox.com/frida/tag/photo/" class="tag-cloud-link tag-link-16 tag-link-position-6" style="font-size: 14px;">photo</a></li><li><a href="https://theburnhambox.com/frida/tag/travel/" class="tag-cloud-link tag-link-17 tag-link-position-7" style="font-size: 14px;">travel</a></li><li><a href="https://theburnhambox.com/frida/tag/video/" class="tag-cloud-link tag-link-18 tag-link-position-8" style="font-size: 14px;">video</a></li></ul></div></div></div></div></div></div>
+
+					                    <!-- /* */ -->
+
+                    <!-- /* Since v.1.1 */ -->
+                    <div class="noto-serif fs13 ita footer-text">© 2020 Frida. All rights reserved.</div>
+                    <div class="btn-to-top noto-serif fs14"><a href="#">Back to Top <i class="fa fa-chevron-up i-spcr-l"></i></a></div>
+                    <!-- <div id="footer-social" class="noto-serif fs14 ita"><div class="social-accounts-footer fs14"><a class="social-icon-touch" href="#" target="_blank"><i class="fa fa-facebook-square"></i></a><a class="social-icon-touch" href="#" target="_blank"><i class="fa fa-twitter"></i></a></div></div> -->
+                    <!-- /* */ -->
+
+                </footer>
+
+            </div><!-- /footer-container -->
+        </div><!-- /footer-outer -->
+
+	</div><!-- /site-container-inner -->
+</div><!-- /site-container -->
+
+<!-- Instagram Feed JS -->
+<script type="text/javascript">
+var sbiajaxurl = "https://theburnhambox.com/frida/wp-admin/admin-ajax.php";
+</script>
+<script type="text/javascript" id="contact-form-7-js-extra">
+/* <![CDATA[ */
+var wpcf7 = {"apiSettings":{"root":"https:\/\/theburnhambox.com\/frida\/wp-json\/contact-form-7\/v1","namespace":"contact-form-7\/v1"},"cached":"1"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="https://theburnhambox.com/frida/wp-content/plugins/contact-form-7/includes/js/scripts.js?ver=5.2.2" id="contact-form-7-js"></script>
+<script type="text/javascript" src="https://theburnhambox.com/frida/wp-content/themes/frida/js/jquery.fitvids.js?ver=5.5.3" id="fitvids-js-js"></script>
+<script type="text/javascript" src="https://theburnhambox.com/frida/wp-content/themes/frida/js/jquery.bxslider.min.js?ver=5.5.3" id="bxslider-js-js"></script>
+<script type="text/javascript" src="https://theburnhambox.com/frida/wp-content/themes/frida/js/burnhambox.js?ver=5.5.3" id="burnhambox-js-js"></script>
+<script type="text/javascript" src="https://theburnhambox.com/frida/wp-content/themes/frida/js/jquery.slicknav.min.js?ver=5.5.3" id="slicknav-js-js"></script>
+<script type="text/javascript" src="https://theburnhambox.com/frida/wp-content/plugins/q2w3-fixed-widget/js/q2w3-fixed-widget.min.js?ver=5.0.4" id="q2w3_fixed_widget-js"></script>
+<script type="text/javascript" src="https://theburnhambox.com/frida/wp-includes/js/wp-embed.min.js?ver=5.5.3" id="wp-embed-js"></script>
+
+
+
+<!-- Page generated by LiteSpeed Cache 3.5.0.2 on 2020-12-28 20:35:59 --><div>
+    <div id="twoseven-ext-tab-media-modal" class="twoseven-ext-tab-media-modal" style="display: none;">
+      <!-- Modal content -->
+      <div class="twoseven-ext-tab-media-modal-content">
+        <div class="iframe-container" style="height: 100%; width: 100%;">
+          <span class="close">×</span>
+        </div>
+      </div>
+    </div></div></body>
